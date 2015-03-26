@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+    
+    <LinearLayout 
+        android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:orientation="vertical" >
+	    
+        
+        <LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="60dp"
+	        android:background="@drawable/bglist"
+	        android:orientation="horizontal"
+	        android:paddingLeft="10dp"
+	        android:paddingRight="10dp" 
+	        android:layout_marginTop="5dp">
+
+	        <ImageView
+	            android:layout_width="8dp"
+	            android:layout_height="60dp"
+	            android:background="@drawable/title_color" />
+
+	        <TextView
+	            android:id="@+id/Name"
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="2"
+	            android:gravity="center"
+	            android:text="Title" />
+
+	        <TextView
+	            android:id="@+id/Create"
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="张一" />
+
+	        
+
+	        <TextView
+	            android:id="@+id/CreateTime"
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="2014-12-25" />
+
+	        
+	    </LinearLayout>
+		
+	    
+
+	    <LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="60dp"
+	        android:background="@drawable/bglist"
+	        android:orientation="horizontal"
+	        android:paddingLeft="10dp"
+	        android:paddingRight="10dp" 
+	        android:layout_marginTop="5dp">
+
+	        <ImageView
+	            
+	            android:layout_width="8dp"
+	            android:layout_height="60dp"
+	            android:background="@drawable/genjin"/>
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="2"
+	            android:gravity="center"
+	            android:text="跟进" />
+
+	        <ImageView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	            android:background="@drawable/dwm" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="进行中" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="2" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="完成" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="3" />
+
+	        <ImageView
+	            android:id="@+id/imagestete1"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	            />
+	    </LinearLayout>
+	    
+	    <LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="60dp"
+	        android:background="@drawable/bglist"
+	        android:orientation="horizontal"
+	        android:paddingLeft="10dp"
+	        android:paddingRight="10dp" 
+	        >
+
+	        <ImageView
+	            
+	            android:layout_width="8dp"
+	            android:layout_height="60dp"
+	            android:background="@drawable/dangan"/>
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="2"
+	            android:gravity="center"
+	            android:text="档案" />
+
+	        <ImageView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	            android:background="@drawable/dwm" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="进行中" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="2" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="完成" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="3" />
+
+	        <ImageView
+	            android:id="@+id/imagestete2"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	            />
+	    </LinearLayout>
+	    
+	    <LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="60dp"
+	        android:background="@drawable/bglist"
+	        android:orientation="horizontal"
+	        android:paddingLeft="10dp"
+	        android:paddingRight="10dp" 
+	        >
+
+	        <ImageView
+	            
+	            android:layout_width="8dp"
+	            android:layout_height="60dp"
+	            android:background="@drawable/hetong" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="2"
+	            android:gravity="center"
+	            android:text="合同" />
+
+	        <ImageView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	            android:background="@drawable/dwm" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="进行中" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="2" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="完成" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="3" />
+
+	        <ImageView
+	            android:id="@+id/imagestete3"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	            />
+	    </LinearLayout>
+	    
+	    <LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="60dp"
+	        android:background="@drawable/bglist"
+	        android:orientation="horizontal"
+	        android:paddingLeft="10dp"
+	        android:paddingRight="10dp" 
+	        >
+
+	        <ImageView
+	            
+	            android:layout_width="8dp"
+	            android:layout_height="60dp"
+	            android:background="@drawable/kaifa" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="2"
+	            android:gravity="center"
+	            android:text="开发" />
+
+	        <ImageView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	            android:background="@drawable/dwm" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="进行中" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="2" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="完成" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="3" />
+
+	        <ImageView
+	            android:id="@+id/imagestete4"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	            />
+	    </LinearLayout>
+	    
+	    <LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="60dp"
+	        android:background="@drawable/bglist"
+	        android:orientation="horizontal"
+	        android:paddingLeft="10dp"
+	        android:paddingRight="10dp" 
+	        >
+
+	        <ImageView
+	            
+	            android:layout_width="8dp"
+	            android:layout_height="60dp"
+	            android:background="@drawable/ceshi"/>
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="2"
+	            android:gravity="center"
+	            android:text="测试" />
+
+	        <ImageView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	            android:background="@drawable/dwm" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="进行中" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="2" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="完成" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="3" />
+
+	        <ImageView
+	            android:id="@+id/imagestete5"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	            />
+	    </LinearLayout>
+	    
+	    <LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="60dp"
+	        android:background="@drawable/bglist"
+	        android:orientation="horizontal"
+	        android:paddingLeft="10dp"
+	        android:paddingRight="10dp" 
+	        >
+
+	        <ImageView
+	            
+	            android:layout_width="8dp"
+	            android:layout_height="60dp"
+	            android:background="@drawable/xuqiu" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="2"
+	            android:gravity="center"
+	            android:text="需求" />
+
+	        <ImageView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	            android:background="@drawable/dwm" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="进行中" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="2" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="完成" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="3" />
+
+	        <ImageView
+	            android:id="@+id/imagestete6"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	            />
+	    </LinearLayout>
+	    
+	    <LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="60dp"
+	        android:background="@drawable/bglist"
+	        android:orientation="horizontal"
+	        android:paddingLeft="10dp"
+	        android:paddingRight="10dp" 
+	        >
+
+	        <ImageView
+	            
+	            android:layout_width="8dp"
+	            android:layout_height="60dp"
+	            android:background="@drawable/shoukuan" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="2"
+	            android:gravity="center"
+	            android:text="收款" />
+
+	        <ImageView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	            android:background="@drawable/dwm" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="进行中" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="2" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="完成" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="3" />
+
+	        <ImageView
+	            android:id="@+id/imagestete7"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	            />
+	    </LinearLayout>
+	    
+	    <LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="60dp"
+	        android:background="@drawable/bglist"
+	        android:orientation="horizontal"
+	        android:paddingLeft="10dp"
+	        android:paddingRight="10dp" 
+	        >
+
+	        <ImageView
+	            
+	            android:layout_width="8dp"
+	            android:layout_height="60dp"
+	            android:background="@drawable/wancheng" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="2"
+	            android:gravity="center"
+	            android:text="完成" />
+
+	        <ImageView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	            android:background="@drawable/dwm" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="进行中" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="2" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="完成" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="3" />
+
+	        <ImageView
+	            android:id="@+id/imagestete8"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"/>
+     
+	    </LinearLayout>
+	    
+	    
+	     <LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"	        
+	        android:orientation="horizontal"
+	        android:paddingLeft="10dp"
+	        android:paddingRight="12dp" >
+	         
+	         <ImageView 		        
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:background="@drawable/divider"/>         
+	     </LinearLayout>
+	    
+   
+    </LinearLayout>
+    
+    
+    
+    
+    
+    
+    
+    
+   
+
+</LinearLayout>

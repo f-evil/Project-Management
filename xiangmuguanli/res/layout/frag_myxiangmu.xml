@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout 
+    android:id="@+id/rl_maincenter_title"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@drawable/bg_topbar" >
+
+    <ImageButton
+        android:id="@+id/ib_menu_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="15dp"
+        android:background="@drawable/left_menu_button2" />
+
+    <TextView
+        android:id="@+id/tv_load_course"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="我的项目"
+        android:textColor="@android:color/white"
+        android:textSize="18dp" />
+    
+  
+    	
+    
+
+</RelativeLayout>
+
+    <TextView 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="正在施工中，敬请期待！"
+        android:gravity="center"
+        android:layout_marginTop="20dp"/>
+
+</RelativeLayout>

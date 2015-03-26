@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.tryee.xiangmuguanli"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/tb"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity android:name=".LoginActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" >
+                </action>
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.tryee.xiangmuguanli.ListActionActivity"></activity>
+        <activity android:name=".MainActivity" ></activity>
+        <activity android:name=".LianxiActivity" ></activity>
+        <activity android:name="xmxx.XMXXActivity" ></activity>
+        <activity android:name=".XMGLActivity"></activity>
+        <activity android:name=".XiugaimmActivity"></activity>
+        <activity android:name=".GerenActivity"></activity>
+        <activity android:name=".TouxiangActivity"></activity>
+        <activity android:name="com.tryee.xiangmuguanli.fragment.KaifaFragment"></activity>
+        
+    </application>
+
+</manifest>

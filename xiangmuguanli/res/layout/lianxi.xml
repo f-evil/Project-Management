@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lianxi"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@drawable/bg1">
+    
+    <RelativeLayout
+        android:id="@+id/topBar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_topbar" >
+        
+        <Button
+            android:id="@+id/fh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/btn_personal1" />
+        
+         
+        <TextView 
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:layout_centerInParent="true"
+        	android:textColor="#ffffffff"
+        	android:textSize="18sp" 
+        	android:text="联系方式"></TextView>
+        
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+        
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            
+            android:layout_centerInParent="true"
+            android:textColor="#e0000000"
+            android:textSize="25sp"/>               
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+        
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="宁波创艺信息科技有限公司"
+            android:layout_centerInParent="true"
+            android:textColor="#E0FFFF"
+            android:textSize="20sp"/>               
+    </RelativeLayout>
+    
+    
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+         <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0574-87616690    87619190"
+            android:layout_centerInParent="true"
+            android:textColor="#E0FFFF"
+            android:textSize="15sp"/>
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+    	<TextView
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:text="宁波市风华路495号"
+        	android:layout_centerInParent="true"
+        	android:textColor="#E0FFFF"
+        	android:textSize="15sp" />
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+    	<TextView
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:text="浙江纺织服装学院5号楼四层"
+        	android:layout_centerInParent="true"
+        	android:textColor="#E0FFFF"
+        	android:textSize="15sp" />
+    </RelativeLayout>
+
+</LinearLayout>

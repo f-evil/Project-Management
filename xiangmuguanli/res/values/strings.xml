@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">项目管理</string>
+    <string name="title_activity_xmgl">XMGLActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_xiugaimm">XiugaimmActivity</string>
+    <string name="guanli_title">title</string>
+
+</resources>

@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+    
+     <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+
+	    <RelativeLayout 
+	    android:id="@+id/rl_maincenter_title"
+	    android:layout_width="match_parent"
+	    android:layout_height="50dp"
+	    android:background="@drawable/bg_topbar" >
+	
+		    <ImageButton
+		        android:id="@+id/ib_menu_left"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_centerVertical="true"
+		        android:layout_marginLeft="15dp"
+		        android:background="@drawable/left_menu_button2" />
+		
+		    <TextView
+		        android:id="@+id/tv_load_course"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_centerInParent="true"
+		        android:gravity="center"
+		        android:text="操作指南"
+		        android:textColor="@android:color/white"
+		        android:textSize="18dp" />
+		    
+		    
+		</RelativeLayout>
+		
+	    <LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="60dp"
+	        android:background="@drawable/bglist"
+	        android:orientation="horizontal"
+	        android:paddingLeft="10dp"
+	        android:paddingRight="10dp" 
+	        android:layout_marginTop="5dp">
+
+	        <ImageView
+	            android:layout_width="8dp"
+	            android:layout_height="60dp"
+	            android:background="@drawable/title_color" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="2"
+	            android:gravity="center"
+	            android:text="项目名" />
+
+	        
+
+	        
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="负责人" />
+
+	        
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="创建时间" />
+
+	        
+	    </LinearLayout>
+		
+	    
+
+	    <LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="60dp"
+	        android:background="@drawable/bglist"
+	        android:orientation="horizontal"
+	        android:paddingLeft="10dp"
+	        android:paddingRight="10dp" 
+	        android:layout_marginTop="5dp">
+
+	        <ImageView
+	            android:layout_width="8dp"
+	            android:layout_height="60dp"
+	            android:background="@drawable/yellow" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="2"
+	            android:gravity="center"
+	            android:text="进度名" />
+
+	        <ImageView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	            android:background="@drawable/dwm" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="进行中" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="2" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="完成" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="3" />
+
+	        <ImageView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	            android:background="@drawable/jt" />
+	    </LinearLayout>
+	    
+	    <LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="60dp"
+	        android:background="@drawable/bglist"
+	        android:orientation="horizontal"
+	        android:paddingLeft="10dp"
+	        android:paddingRight="10dp" 
+	        android:layout_marginTop="5dp">
+
+	        <ImageView
+	            android:layout_width="8dp"
+	            android:layout_height="60dp"
+	            android:background="@drawable/yellow" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="2"
+	            android:gravity="center"
+	            android:text="进度名" />
+
+	        <ImageView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	            android:background="@drawable/dwm" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="进行中" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="2" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="完成" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="3" />
+
+	        <ImageView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	            android:background="@drawable/jt" />
+	    </LinearLayout>
+	    
+	    <LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="60dp"
+	        android:background="@drawable/bglist"
+	        android:orientation="horizontal"
+	        android:paddingLeft="10dp"
+	        android:paddingRight="10dp" 
+	        android:layout_marginTop="5dp">
+
+	        <ImageView
+	            android:layout_width="8dp"
+	            android:layout_height="60dp"
+	            android:background="@drawable/yellow" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="2"
+	            android:gravity="center"
+	            android:text="进度名" />
+
+	        <ImageView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	            android:background="@drawable/dwm" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="进行中" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="2" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="完成" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="3" />
+
+	        <ImageView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	            android:background="@drawable/jt" />
+	    </LinearLayout>
+	    
+	    <LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="60dp"
+	        android:background="@drawable/bglist"
+	        android:orientation="horizontal"
+	        android:paddingLeft="10dp"
+	        android:paddingRight="10dp" 
+	        android:layout_marginTop="5dp">
+
+	        <ImageView
+	            android:layout_width="8dp"
+	            android:layout_height="60dp"
+	            android:background="@drawable/yellow" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="2"
+	            android:gravity="center"
+	            android:text="进度名" />
+
+	        <ImageView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	            android:background="@drawable/dwm" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="进行中" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="2" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="完成" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="3" />
+
+	        <ImageView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	            android:background="@drawable/jt" />
+	    </LinearLayout>
+	    
+	    <LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="60dp"
+	        android:background="@drawable/bglist"
+	        android:orientation="horizontal"
+	        android:paddingLeft="10dp"
+	        android:paddingRight="10dp" 
+	        android:layout_marginTop="5dp">
+
+	        <ImageView
+	            android:layout_width="8dp"
+	            android:layout_height="60dp"
+	            android:background="@drawable/yellow" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="2"
+	            android:gravity="center"
+	            android:text="进度名" />
+
+	        <ImageView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	            android:background="@drawable/dwm" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="进行中" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="2" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="完成" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="3" />
+
+	        <ImageView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	            android:background="@drawable/jt" />
+	    </LinearLayout>
+	    
+	    <LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="60dp"
+	        android:background="@drawable/bglist"
+	        android:orientation="horizontal"
+	        android:paddingLeft="10dp"
+	        android:paddingRight="10dp" 
+	        android:layout_marginTop="5dp">
+
+	        <ImageView
+	            android:layout_width="8dp"
+	            android:layout_height="60dp"
+	            android:background="@drawable/yellow" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="2"
+	            android:gravity="center"
+	            android:text="进度名" />
+
+	        <ImageView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	            android:background="@drawable/dwm" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="进行中" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="2" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="完成" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="3" />
+
+	        <ImageView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	            android:background="@drawable/jt" />
+	    </LinearLayout>
+	    
+	    <LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="60dp"
+	        android:background="@drawable/bglist"
+	        android:orientation="horizontal"
+	        android:paddingLeft="10dp"
+	        android:paddingRight="10dp" 
+	        android:layout_marginTop="5dp">
+
+	        <ImageView
+	            android:layout_width="8dp"
+	            android:layout_height="60dp"
+	            android:background="@drawable/yellow" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="2"
+	            android:gravity="center"
+	            android:text="进度名" />
+
+	        <ImageView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	            android:background="@drawable/dwm" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="进行中" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="2" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="完成" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="3" />
+
+	        <ImageView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	            android:background="@drawable/jt" />
+	    </LinearLayout>
+	    
+	    <LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="60dp"
+	        android:background="@drawable/bglist"
+	        android:orientation="horizontal"
+	        android:paddingLeft="10dp"
+	        android:paddingRight="10dp" 
+	        android:layout_marginTop="5dp">
+
+	        <ImageView
+	            android:layout_width="8dp"
+	            android:layout_height="60dp"
+	            android:background="@drawable/yellow" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="2"
+	            android:gravity="center"
+	            android:text="进度名" />
+
+	        <ImageView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	            android:background="@drawable/dwm" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="进行中" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="2" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="完成" />
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="3" />
+
+	        <ImageView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	            android:background="@drawable/jt" />
+	    </LinearLayout>
+   
+    </LinearLayout>
+    
+    
+
+    
+
+</RelativeLayout>
