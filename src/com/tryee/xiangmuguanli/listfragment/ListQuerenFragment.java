@@ -31,7 +31,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 public class ListQuerenFragment extends ListBaseFragment {
-	
+
 	private ListView listView;
 	private WanchengAdapt adapter;
 	private WC wcDate;
@@ -45,22 +45,22 @@ public class ListQuerenFragment extends ListBaseFragment {
 		Bundle bundle = getArguments();
 		String newIdString = bundle.getString("ID");
 		//Toast.makeText(getActivity(), newIdString, Toast.LENGTH_LONG).show();
-		
+
 		listWanChengView=inflater.inflate(R.layout.list_wancheng, null);
-		
+
 		adapter =new WanchengAdapt(getActivity());
-		
+
 		listView=(ListView)listWanChengView.findViewById(R.id.XMListWanCheng);
-		
+
 		wcDateList =new ArrayList<WC>();
-		
+
 		getListData(newIdString);
-		
-		
-		
+
+
+
 		return listWanChengView;
 	}
-	
+
 	private void getListData(String newString){
 		final String a = newString;
 		new Thread(){
@@ -69,12 +69,12 @@ public class ListQuerenFragment extends ListBaseFragment {
 				// TODO Auto-generated method stub
 				Looper.prepare();
 				wcDateList.clear();
-				String url=Url.URL+"/xmgd/xmxx_ajaxdetailwc.htm?id="+a;
+				String url=Url.URL+""+a;
 				Log.e("URLgetString", url);
 				HttpClient client=new DefaultHttpClient();
 				StringBuilder builder=new StringBuilder();
 				HttpGet get=new HttpGet(url);
-				
+
 				try {
 					HttpResponse response=client.execute(get);
 					BufferedReader reader=new BufferedReader(new InputStreamReader(
@@ -88,64 +88,64 @@ public class ListQuerenFragment extends ListBaseFragment {
 					if (jsonArray.length() > 0) {
 						for (int i=0;i<jsonArray.length();i++) {
 							WC wcthisData=new WC();
-							
-							
-							
+
+
+
 							if(!jsonArray.getJSONObject(i).getString("cjrname").equals("")){
 								wcthisData.setCjrname(jsonArray.getJSONObject(i).getString("cjrname"));
 								Log.e("cjrname", wcthisData.getCjrname());
 								}else {
 									wcthisData.setCjrname(" ");
 								}
-							
+
 							if (!jsonArray.getJSONObject(i).getString("wcxmfbsj").equals("")) {
 								wcthisData.setWcxmfbsj(jsonArray.getJSONObject(i).getString("wcxmfbsj"));
 								Log.e("wcxmfbsj", wcthisData.getWcxmfbsj());
 							}else {
 								wcthisData.setWcxmfbsj(" ");
 							}
-							
+
 							if (!jsonArray.getJSONObject(i).getString("wcxmjj").equals("")) {
 								wcthisData.setWcxmjj(jsonArray.getJSONObject(i).getString("wcxmjj"));
 								Log.e("wcxmjj", wcthisData.getWcxmjj());
 							}else {
 								wcthisData.setWcxmjj(" ");
 							}
-							
+
 							wcDateList.add(wcthisData);
-							
+
 						}
 						Message msg = new Message();
-						
+
 						msg.what = 0;
-						
+
 						handler.sendMessage(msg);
 					}else {
 						Message msg = new Message();
-						
+
 						msg.what = 99;
-						
+
 						handler.sendMessage(msg);
 					}
-					
-					
-					
-					
+
+
+
+
 				} catch (Exception e) {
 					// TODO: handle exception
 					Log.e("Exception", e.toString());
 					Message msg = new Message();
-					
+
 					msg.what = 1;
-					
+
 					handler.sendMessage(msg);
 				}
 				Looper.loop();
 			}
 		}.start();
-		
+
 	}
-	
+
 	private Handler handler= new Handler(){
 		public void handleMessage(Message e){
 			switch (e.what) {
@@ -160,15 +160,15 @@ public class ListQuerenFragment extends ListBaseFragment {
 				break;
 			case 99:
 				Toast.makeText(getActivity(), "无数据...", Toast.LENGTH_LONG).show();
-				break;	
+				break;
 
 			default:
 				break;
 			}
 		}
 	};
-	
-	
+
+
 
 	@Override
 	protected void initData(Bundle savedInstanceState) {

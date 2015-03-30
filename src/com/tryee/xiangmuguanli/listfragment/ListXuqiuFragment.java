@@ -31,7 +31,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 public class ListXuqiuFragment extends ListBaseFragment {
-	
+
 	private ListView listView;
 	private XuqiuAdapt adapter;
 	private XQ xqDate;
@@ -45,23 +45,23 @@ public class ListXuqiuFragment extends ListBaseFragment {
 		Bundle bundle = getArguments();
 		String newIdString = bundle.getString("ID");
 		//Toast.makeText(getActivity(), newIdString, Toast.LENGTH_LONG).show();
-		
+
 		listXuQiuView=inflater.inflate(R.layout.list_xuqiu, null);
-		
+
 		adapter =new XuqiuAdapt(getActivity());
-		
+
 		listView=(ListView)listXuQiuView.findViewById(R.id.XMListXuQiu);
-		
+
 		xqDateList =new ArrayList<XQ>();
-		
+
 		getListData(newIdString);
-		
-		
-		
-		
+
+
+
+
 		return listXuQiuView;
 	}
-	
+
 	private void getListData(String newString){
 		final String a = newString;
 		new Thread(){
@@ -70,12 +70,12 @@ public class ListXuqiuFragment extends ListBaseFragment {
 				// TODO Auto-generated method stub
 				Looper.prepare();
 				xqDateList.clear();
-				String url=Url.URL+"/xmgd/xmxx_ajaxdetailxq.htm?id="+a;
+				String url=Url.URL+""+a;
 				Log.e("URLgetString", url);
 				HttpClient client=new DefaultHttpClient();
 				StringBuilder builder=new StringBuilder();
 				HttpGet get=new HttpGet(url);
-				
+
 				try {
 					HttpResponse response=client.execute(get);
 					BufferedReader reader=new BufferedReader(new InputStreamReader(
@@ -89,64 +89,64 @@ public class ListXuqiuFragment extends ListBaseFragment {
 					if (jsonArray.length() > 0) {
 						for (int i=0;i<jsonArray.length();i++) {
 							XQ xqthisData=new XQ();
-							
-							
-							
+
+
+
 							if(!jsonArray.getJSONObject(i).getString("cjrname").equals("")){
 								xqthisData.setCjrname(jsonArray.getJSONObject(i).getString("cjrname"));
 								Log.e("cjrname", xqthisData.getCjrname());
 								}else {
 									xqthisData.setCjrname(" ");
 								}
-							
+
 							if (!jsonArray.getJSONObject(i).getString("xqbgfbsj").equals("")) {
 								xqthisData.setXqbgfbsj(jsonArray.getJSONObject(i).getString("xqbgfbsj"));
 								Log.e("xqbgfbsj", xqthisData.getXqbgfbsj());
 							}else {
 								xqthisData.setXqbgfbsj(" ");
 							}
-							
+
 							if (!jsonArray.getJSONObject(i).getString("xqbgjj").equals("")) {
 								xqthisData.setXqbgjj(jsonArray.getJSONObject(i).getString("xqbgjj"));
 								Log.e("xqbgjj", xqthisData.getXqbgjj());
 							}else {
 								xqthisData.setXqbgjj(" ");
 							}
-							
+
 							xqDateList.add(xqthisData);
-							
+
 						}
 						Message msg = new Message();
-						
+
 						msg.what = 0;
-						
+
 						handler.sendMessage(msg);
 					}else {
 						Message msg = new Message();
-						
+
 						msg.what = 99;
-						
+
 						handler.sendMessage(msg);
 					}
-					
-					
-					
-					
+
+
+
+
 				} catch (Exception e) {
 					// TODO: handle exception
 					Log.e("Exception", e.toString());
 					Message msg = new Message();
-					
+
 					msg.what = 1;
-					
+
 					handler.sendMessage(msg);
 				}
 				Looper.loop();
 			}
 		}.start();
-		
+
 	}
-	
+
 	private Handler handler= new Handler(){
 		public void handleMessage(Message e){
 			switch (e.what) {
@@ -161,15 +161,15 @@ public class ListXuqiuFragment extends ListBaseFragment {
 				break;
 			case 99:
 				Toast.makeText(getActivity(), "无数据...", Toast.LENGTH_LONG).show();
-				break;	
+				break;
 
 			default:
 				break;
 			}
 		}
 	};
-	
-	
+
+
 
 	@Override
 	protected void initData(Bundle savedInstanceState) {

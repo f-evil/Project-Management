@@ -28,14 +28,14 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 public class ListHetongFragment extends ListBaseFragment {
-	
+
 	private ListView listView;
 	private HetongAdapt adapter;
 	private HT htDate;
 	View listHetongView=null;
 	private ArrayList<HT> htDateList;
 	String newIdString;
-	
+
 
 	@Override
 	protected View initView(LayoutInflater inflater) {
@@ -43,21 +43,21 @@ public class ListHetongFragment extends ListBaseFragment {
 		Bundle bundle = getArguments();
 		String newIdString = bundle.getString("ID");
 		//Toast.makeText(getActivity(), newIdString, Toast.LENGTH_LONG).show();
-		
+
 		listHetongView=inflater.inflate(R.layout.list_hetong, null);
-		
+
 		adapter =new HetongAdapt(getActivity());
-		
+
 		listView=(ListView)listHetongView.findViewById(R.id.XMListHeTong);
-		
+
 		htDateList =new ArrayList<HT>();
-		
+
 		getListData(newIdString);
-		
-		
+
+
 		return listHetongView;
 	}
-	
+
 	private void getListData(String newString){
 		final String a = newString;
 		new Thread(){
@@ -66,12 +66,12 @@ public class ListHetongFragment extends ListBaseFragment {
 				// TODO Auto-generated method stub
 				Looper.prepare();
 				htDateList.clear();
-				String url=Url.URL+"/xmgd/xmxx_ajaxdetailht.htm?id="+a;
+				String url=Url.URL+""+a;
 				Log.e("URLgetString", url);
 				HttpClient client=new DefaultHttpClient();
 				StringBuilder builder=new StringBuilder();
 				HttpGet get=new HttpGet(url);
-				
+
 				try {
 					HttpResponse response=client.execute(get);
 					BufferedReader reader=new BufferedReader(new InputStreamReader(
@@ -85,23 +85,23 @@ public class ListHetongFragment extends ListBaseFragment {
 					if (jsonArray.length() > 0) {
 						for (int i=0;i<jsonArray.length();i++) {
 							HT htthisData=new HT();
-							
-							
-							
+
+
+
 							if(!jsonArray.getJSONObject(i).getString("cjrname").equals("")){
 								htthisData.setCjrname(jsonArray.getJSONObject(i).getString("cjrname"));
 								Log.e("cjrname", htthisData.getCjrname());
 								}else {
 									htthisData.setCjrname(" ");
 								}
-							
+
 							if (!jsonArray.getJSONObject(i).getString("jlsj").equals("")) {
 								htthisData.setJlsj(jsonArray.getJSONObject(i).getString("jlsj"));
 								Log.e("jlsj", htthisData.getJlsj());
 							}else {
 								htthisData.setJlsj(" ");
 							}
-							
+
 							if (!jsonArray.getJSONObject(i).getString("kssj").equals("")) {
 								htthisData.setKssj(jsonArray.getJSONObject(i).getString("kssj"));
 								Log.e("kssj", htthisData.getKssj());
@@ -126,46 +126,46 @@ public class ListHetongFragment extends ListBaseFragment {
 							}else {
 								htthisData.setHtjj(" ");
 							}
-							
-							
-							
-							
-							
-							
+
+
+
+
+
+
 							htDateList.add(htthisData);
-							
+
 						}
 						Message msg = new Message();
-						
+
 						msg.what = 0;
-						
+
 						handler.sendMessage(msg);
 					}else {
 						Message msg = new Message();
-						
+
 						msg.what = 99;
-						
+
 						handler.sendMessage(msg);
 					}
-					
-					
-					
-					
+
+
+
+
 				} catch (Exception e) {
 					// TODO: handle exception
 					Log.e("Exception", e.toString());
 					Message msg = new Message();
-					
+
 					msg.what = 1;
-					
+
 					handler.sendMessage(msg);
 				}
 				Looper.loop();
 			}
 		}.start();
-		
+
 	}
-	
+
 	private Handler handler= new Handler(){
 		public void handleMessage(Message e){
 			switch (e.what) {
@@ -180,7 +180,7 @@ public class ListHetongFragment extends ListBaseFragment {
 				break;
 			case 99:
 				Toast.makeText(getActivity(), "无数据...", Toast.LENGTH_LONG).show();
-				break;	
+				break;
 
 			default:
 				break;
@@ -188,9 +188,9 @@ public class ListHetongFragment extends ListBaseFragment {
 		}
 	};
 
-	
-	
-	
+
+
+
 
 	@Override
 	protected void initData(Bundle savedInstanceState) {

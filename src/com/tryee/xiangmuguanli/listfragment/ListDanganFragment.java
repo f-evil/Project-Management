@@ -46,7 +46,7 @@ import android.widget.Toast;
 @SuppressLint("CutPasteId")
 public class ListDanganFragment extends ListBaseFragment {
 
-	
+
 	private ListView listView;
 	private DanganAdapt adapter;
 	private JD jdDate;
@@ -54,42 +54,42 @@ public class ListDanganFragment extends ListBaseFragment {
 	private ArrayList<JD> jdDateList;
 	String newIdString;
 	private JD jdthisData=new JD();
-	private SpannableString sStr; 
+	private SpannableString sStr;
 	private String path;
-	
-	
+
+
 	@Override
 	protected View initView(LayoutInflater inflater) {
 		// TODO Auto-generated method stub
 		Bundle bundle = getArguments();
 		newIdString = bundle.getString("ID");
 		//Toast.makeText(getActivity(), newIdString, Toast.LENGTH_LONG).show();
-		
+
 		listDangAnView=inflater.inflate(R.layout.list_dangan, null);
-		
+
 		adapter =new DanganAdapt(getActivity());
-		
+
 		listView=(ListView)listDangAnView.findViewById(R.id.XMListDangAn);
-		
+
 		jdDateList =new ArrayList<JD>();
-		
+
 		getListData(newIdString);
-		
+
 		//LinearLayout dangan_ll=(LinearLayout)listDangAnView.findViewById(R.id.dangan_ll);
 		ListView xiazailListView=(ListView)listDangAnView.findViewById(R.id.XMListDangAn);
-		
+
 		xiazailListView.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				// TODO Auto-generated method stub
-				
-				
-				
-				String urlPath="http://60.190.203.28:81/xmgd/FileDownload?filename="+path;
+
+
+
+				String urlPath=""+path;
 				Log.e("urlPath", urlPath);
-				
+
 				if (path!=null) {
 					int key=(int) parent.getItemIdAtPosition(position);
 					switch (key) {
@@ -106,16 +106,16 @@ public class ListDanganFragment extends ListBaseFragment {
 				} else {
 					return;
 				}
-				
-				
+
+
 			}
 		});
-		
-	
-		
+
+
+
 		return listDangAnView;
 	}
-	
+
 	private void getListData(String newString){
 		final String a = newString;
 		new Thread(){
@@ -129,7 +129,7 @@ public class ListDanganFragment extends ListBaseFragment {
 				HttpClient client=new DefaultHttpClient();
 				StringBuilder builder=new StringBuilder();
 				HttpGet get=new HttpGet(url);
-				
+
 				try {
 					HttpResponse response=client.execute(get);
 					BufferedReader reader=new BufferedReader(new InputStreamReader(
@@ -143,30 +143,30 @@ public class ListDanganFragment extends ListBaseFragment {
 					if (jsonArray.length() > 0) {
 						for (int i=0;i<jsonArray.length();i++) {
 							JD jdthisData=new JD();
-							
-							
-							
+
+
+
 							if(!jsonArray.getJSONObject(i).getString("cjrname").equals("")){
 								jdthisData.setCjrname(jsonArray.getJSONObject(i).getString("cjrname"));
 								Log.e("cjrname", jdthisData.getCjrname());
 								}else {
 									jdthisData.setCjrname(" ");
 								}
-							
+
 							if (!jsonArray.getJSONObject(i).getString("wasj").equals("")) {
 								jdthisData.setWasj(jsonArray.getJSONObject(i).getString("wasj"));
 								Log.e("wasj", jdthisData.getWasj());
 							}else {
 								jdthisData.setWasj(" ");
 							}
-							
+
 							if (!jsonArray.getJSONObject(i).getString("jdjj").equals("")) {
 								jdthisData.setJdjj(jsonArray.getJSONObject(i).getString("jdjj"));
 								Log.e("jdjj", jdthisData.getJdjj());
 							}else {
 								jdthisData.setJdjj(" ");
 							}
-							
+
 							if (!jsonArray.getJSONObject(i).getString("path").equals("")) {
 								jdthisData.setPath(jsonArray.getJSONObject(i).getString("path"));
 								path=jdthisData.getPath();
@@ -174,44 +174,44 @@ public class ListDanganFragment extends ListBaseFragment {
 							}else {
 								jdthisData.setPath(" ");
 							}
-							
+
 							jdDateList.add(jdthisData);
-							
+
 						}
 						Message msg = new Message();
-						
+
 						msg.what = 0;
-						
+
 						handler.sendMessage(msg);
 					}else {
 						Message msg = new Message();
-						
+
 						msg.what = 99;
-						
+
 						handler.sendMessage(msg);
 					}
-					
-					
-					
-					
+
+
+
+
 				} catch (Exception e) {
 					// TODO: handle exception
 					Log.e("Exception", e.toString());
 					Message msg = new Message();
-					
+
 					msg.what = 1;
-					
+
 					handler.sendMessage(msg);
 				}
 				Looper.loop();
 			}
 		}.start();
-		
-		
-		
-		
+
+
+
+
 	}
-	
+
 	private Handler handler= new Handler(){
 		public void handleMessage(Message e){
 			switch (e.what) {
@@ -226,7 +226,7 @@ public class ListDanganFragment extends ListBaseFragment {
 				break;
 			case 99:
 				Toast.makeText(getActivity(), "无数据...", Toast.LENGTH_LONG).show();
-				break;	
+				break;
 
 			default:
 				break;

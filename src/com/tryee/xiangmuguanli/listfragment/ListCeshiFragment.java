@@ -36,8 +36,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 public class ListCeshiFragment extends ListBaseFragment {
-	
-	
+
+
 	private ListView listView;
 	private CeshiAdapt adapter;
 	private CS csDate;
@@ -46,34 +46,34 @@ public class ListCeshiFragment extends ListBaseFragment {
 	String newIdString;
 
 	//private Activity fActivity = new ListActionActivity();
-	
+
 	@Override
 	protected View initView(LayoutInflater inflater) {
 		Bundle bundle = getArguments();
 		String newIdString = bundle.getString("ID");
-		
+
 		//Toast.makeText(getActivity(), newIdString, Toast.LENGTH_LONG).show();
-		
+
 		listCeShiView=inflater.inflate(R.layout.list_ceshi, null);
-		
+
 		adapter =new CeshiAdapt(getActivity());
-		
+
 		listView=(ListView)listCeShiView.findViewById(R.id.XMListCeShi);
-		
+
 		csDateList =new ArrayList<CS>();
-		
+
 		getListData(newIdString);
-		
-		
-		
-		
-		
-		
+
+
+
+
+
+
 
 		// TODO Auto-generated method stub
 		return listCeShiView;
 	}
-	
+
 	private void getListData(String newString){
 		final String a = newString;
 		new Thread(){
@@ -82,12 +82,12 @@ public class ListCeshiFragment extends ListBaseFragment {
 				// TODO Auto-generated method stub
 				Looper.prepare();
 				csDateList.clear();
-				String url=Url.URL+"/xmgd/xmxx_ajaxdetailcs.htm?id="+a;
+				String url=Url.URL+""+a;
 				Log.e("URLgetString", url);
 				HttpClient client=new DefaultHttpClient();
 				StringBuilder builder=new StringBuilder();
 				HttpGet get=new HttpGet(url);
-				
+
 				try {
 					HttpResponse response=client.execute(get);
 					BufferedReader reader=new BufferedReader(new InputStreamReader(
@@ -101,68 +101,68 @@ public class ListCeshiFragment extends ListBaseFragment {
 					if (jsonArray.length() > 0) {
 						for (int i=0;i<jsonArray.length();i++) {
 							CS csthisData=new CS();
-							
-							
-							
+
+
+
 							if(!jsonArray.getJSONObject(i).getString("cjrname").equals("")){
 								csthisData.setCjrname(jsonArray.getJSONObject(i).getString("cjrname"));
 								Log.e("cjrname", csthisData.getCjrname());
 								}else {
 									csthisData.setCjrname(" ");
 								}
-							
+
 							if (!jsonArray.getJSONObject(i).getString("csfbsj").equals("")) {
 								csthisData.setCsfbsj(jsonArray.getJSONObject(i).getString("csfbsj"));
 								Log.e("csfbsj", csthisData.getCsfbsj());
 							}else {
 								csthisData.setCsfbsj(" ");
 							}
-							
+
 							if (!jsonArray.getJSONObject(i).getString("csjj").equals("")) {
 								csthisData.setCsjj(jsonArray.getJSONObject(i).getString("csjj"));
 								Log.e("csjj", csthisData.getCsjj());
 							}else {
 								csthisData.setCsjj(" ");
 							}
-							
+
 							csDateList.add(csthisData);
-							
+
 						}
 						Message msg = new Message();
-						
+
 						msg.what = 0;
-						
+
 						handler.sendMessage(msg);
 					}else {
 						Message msg = new Message();
-						
+
 						msg.what = 99;
-						
+
 						handler.sendMessage(msg);
 					}
-					
+
 				}catch(JSONException e){
 					Message jsonMessage = new Message();
 					jsonMessage.what = 98;
 					handler.sendMessage(jsonMessage);
-					
-					
-					
+
+
+
 				} catch (Exception e) {
 					// TODO: handle exception
 					Log.e("Exception", e.toString());
 					Message msg = new Message();
-					
+
 					msg.what = 1;
-					
+
 					handler.sendMessage(msg);
 				}
 				Looper.loop();
 			}
 		}.start();
-		
+
 	}
-	
+
 	private Handler handler= new Handler(){
 		public void handleMessage(Message e){
 			switch (e.what) {
@@ -177,7 +177,7 @@ public class ListCeshiFragment extends ListBaseFragment {
 				break;
 			case 99:
 				Toast.makeText(getActivity(), "无数据...", Toast.LENGTH_LONG).show();
-				break;	
+				break;
 			case 98:
 				Toast.makeText(getActivity(), "无此数据...", Toast.LENGTH_LONG).show();
 				break;
@@ -186,12 +186,12 @@ public class ListCeshiFragment extends ListBaseFragment {
 			}
 		}
 	};
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
 
 	@Override
 	protected void initData(Bundle savedInstanceState) {

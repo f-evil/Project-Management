@@ -31,7 +31,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 public class ListShoukuanFragment extends ListBaseFragment {
-	
+
 	private ListView listView;
 	private ShoukuanAdapt adapter;
 	private SK skDate;
@@ -45,23 +45,23 @@ public class ListShoukuanFragment extends ListBaseFragment {
 		Bundle bundle = getArguments();
 		String newIdString = bundle.getString("ID");
 		//Toast.makeText(getActivity(), newIdString, Toast.LENGTH_LONG).show();
-		
+
 		listShouKuanView=inflater.inflate(R.layout.list_shoukuan, null);
-		
+
 		adapter =new ShoukuanAdapt(getActivity());
-		
+
 		listView=(ListView)listShouKuanView.findViewById(R.id.XMListShouKuan);
-		
+
 		skDateList =new ArrayList<SK>();
-		
+
 		getListData(newIdString);
-		
-		
-		
-		
+
+
+
+
 		return listShouKuanView;
 	}
-	
+
 	private void getListData(String newString){
 		final String a = newString;
 		new Thread(){
@@ -70,12 +70,12 @@ public class ListShoukuanFragment extends ListBaseFragment {
 				// TODO Auto-generated method stub
 				Looper.prepare();
 				skDateList.clear();
-				String url=Url.URL+"/xmgd/xmxx_ajaxdetailsk.htm?id="+a;
+				String url=Url.URL+""+a;
 				Log.e("URLgetString", url);
 				HttpClient client=new DefaultHttpClient();
 				StringBuilder builder=new StringBuilder();
 				HttpGet get=new HttpGet(url);
-				
+
 				try {
 					HttpResponse response=client.execute(get);
 					BufferedReader reader=new BufferedReader(new InputStreamReader(
@@ -89,64 +89,64 @@ public class ListShoukuanFragment extends ListBaseFragment {
 					if (jsonArray.length() > 0) {
 						for (int i=0;i<jsonArray.length();i++) {
 							SK skthisData=new SK();
-							
-							
-							
+
+
+
 							if(!jsonArray.getJSONObject(i).getString("cjrname").equals("")){
 								skthisData.setCjrname(jsonArray.getJSONObject(i).getString("cjrname"));
 								Log.e("cjrname", skthisData.getCjrname());
 								}else {
 									skthisData.setCjrname(" ");
 								}
-							
+
 							if (!jsonArray.getJSONObject(i).getString("skjafbsj").equals("")) {
 								skthisData.setSkjafbsj(jsonArray.getJSONObject(i).getString("skjafbsj"));
 								Log.e("skjafbsj", skthisData.getSkjafbsj());
 							}else {
 								skthisData.setSkjafbsj(" ");
 							}
-							
+
 							if (!jsonArray.getJSONObject(i).getString("skjajj").equals("")) {
 								skthisData.setSkjajj(jsonArray.getJSONObject(i).getString("skjajj"));
 								Log.e("skjajj", skthisData.getSkjajj());
 							}else {
 								skthisData.setSkjajj(" ");
 							}
-							
+
 							skDateList.add(skthisData);
-							
+
 						}
 						Message msg = new Message();
-						
+
 						msg.what = 0;
-						
+
 						handler.sendMessage(msg);
 					}else {
 						Message msg = new Message();
-						
+
 						msg.what = 99;
-						
+
 						handler.sendMessage(msg);
 					}
-					
-					
-					
-					
+
+
+
+
 				} catch (Exception e) {
 					// TODO: handle exception
 					Log.e("Exception", e.toString());
 					Message msg = new Message();
-					
+
 					msg.what = 1;
-					
+
 					handler.sendMessage(msg);
 				}
 				Looper.loop();
 			}
 		}.start();
-		
+
 	}
-	
+
 	private Handler handler= new Handler(){
 		public void handleMessage(Message e){
 			switch (e.what) {
@@ -161,19 +161,19 @@ public class ListShoukuanFragment extends ListBaseFragment {
 				break;
 			case 99:
 				Toast.makeText(getActivity(), "无数据...", Toast.LENGTH_LONG).show();
-				break;	
+				break;
 
 			default:
 				break;
 			}
 		}
 	};
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
 
 	@Override
 	protected void initData(Bundle savedInstanceState) {

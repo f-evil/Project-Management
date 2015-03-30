@@ -48,7 +48,7 @@ import android.widget.AdapterView.OnItemLongClickListener;
 import android.os.Handler;
 
 public class KaifaFragment extends BaseFragment {
-	
+
 	private Activity kaifaActivity;
 	private ListView listView;
 	private Activity mActivity;
@@ -61,10 +61,10 @@ public class KaifaFragment extends BaseFragment {
 	@Override
 	protected View initView(LayoutInflater inflater) {
 		// TODO Auto-generated method stub
-		
-		
+
+
 		dialog = ProgressDialog.show(getActivity(), null, "get...");
-	
+
 		kaifaView = inflater.inflate(R.layout.frag_kaifa, null);
 		kaifaActivity = this.getActivity();
 //		Dialog dialog;
@@ -75,42 +75,42 @@ public class KaifaFragment extends BaseFragment {
 		listView = (ListView)kaifaView.findViewById(R.id.XMList);
 		//listView.setAdapter(adapter);
 		seachEdit.addTextChangedListener(new TextWatcher() {
-			
+
 			@Override
 			public void onTextChanged(CharSequence s, int start, int before, int count) {
 				// TODO Auto-generated method stub
 				adapter.searchData(seachEdit.getText().toString());
 			}
-			
+
 			@Override
 			public void beforeTextChanged(CharSequence s, int start, int count,
 					int after) {
 				// TODO Auto-generated method stub
-				
+
 			}
-			
+
 			@Override
 			public void afterTextChanged(Editable s) {
 				// TODO Auto-generated method stub
-				
+
 			}
 		});
-		
-		
+
+
 		GetListData();
-		
+
 
 		//return inflater.inflate(R.layout.frag_kaifa, null);
 
-		
-		
-		
+
+
+
 		return kaifaView;
-		
-		
-		
-		
-		
+
+
+
+
+
 	}
 
 	private void init(View view){
@@ -119,103 +119,101 @@ public class KaifaFragment extends BaseFragment {
 		listView = (ListView)view.findViewById(R.id.XMList);
 		listView.setAdapter(adapter);
 		seachEdit.addTextChangedListener(new TextWatcher() {
-			
+
 			@Override
 			public void onTextChanged(CharSequence s, int start, int before, int count) {
 				// TODO Auto-generated method stub
 				adapter.searchData(seachEdit.getText().toString());
 			}
-			
+
 			@Override
 			public void beforeTextChanged(CharSequence s, int start, int count,
 					int after) {
 				// TODO Auto-generated method stub
-				
+
 			}
-			
+
 			@Override
 			public void afterTextChanged(Editable s) {
 				// TODO Auto-generated method stub
-				
+
 			}
 		});
-		
-		
+
+
 	}
-	
-	
-	
+
+
+
 	private void GetListData() {
-		
-		
+
+
 		new Thread(){
 			public void run(){
 				Looper.prepare();
 				Log.e("thread", "start");
-				//String url = "http://192.168.191.1:8001/operator_ajax.htm";
-				
-				//String url = "http://192.168.191.1:8001/hightern/integration_ajax.htm";
-				
+
+
 				allxm.clear();
-				
-				//String url2="http://192.168.191.1:8080/";
-				String url2="http://60.190.203.28:81/";
-				//String url = url2+"xmgd/xmxx_ajaxlist.htm?ym=6";
-				String url = url2+"xmgd/xmxx_ajax.htm";
-				
-				
+
+
+				String url2="";
+
+				String url = url2+"";
+
+
 				HttpClient client = new DefaultHttpClient();
 				StringBuilder builder = new StringBuilder();
-				
+
 				HttpGet get = new HttpGet(url);
-				
+
 				try{
-					
+
 					HttpResponse response = client.execute(get);
-					
-					
+
+
 					BufferedReader reader = new BufferedReader(new InputStreamReader(
 							response.getEntity().getContent()));
-					
-					
-					
+
+
+
 					for(String s = reader.readLine();s != null;s=reader.readLine()){
 						builder.append(s);
 					}
 					//����jsonarray
 					JSONArray jsonArray = new JSONArray(builder.toString());
 					Log.e("JsonArray",jsonArray.toString());
-					
-					
-					
+
+
+
 					//JSONObject jsonObject = (JSONObject) jsonArray.getJSONObject(69);
-					
+
 					//JSONObject jsonObject = new JSONObject(builder.toString());
 					//Log.e("getjsonarray",jsonArray.toString());
-					
+
 					//Log.e("jsonArraylength", jsonArray.length()+"");
 					//Log.e("getjsonarray", jsonArray.toString());
 					//Log.e("getjsonyes", jsonObject.toString());
 					ArrayList<JSONObject> jsonList = new ArrayList<JSONObject>();
-					
+
 					//jsonArray.getInt(0);
 					for(int i=0;i<jsonArray.length();i++){
 
 						//ArrayList<JSONObject> jsonObjectList = new ArrayList<JSONObject>();
 						jsonList.add((JSONObject)jsonArray.getJSONObject(i));
-						
+
 						Allxm ax = new Allxm();
-						
+
 						ax.setId(Integer.parseInt(jsonArray.getJSONObject(i).getString("id")));
-						
+
 						//Log.e("ID", ax.getId()+"");
-						
+
 						ax.setName(jsonArray.getJSONObject(i).getString("name"));
-						
+
 						ax.setCreate(jsonArray.getJSONObject(i).getString("cjrname"));
-						
+
 						ax.setCreatetime(jsonArray.getJSONObject(i).getString("qdsj"));
-						
+
 						//״̬1
 						if(jsonArray.getJSONObject(i).getString("gjqk").equals("")){
 							ax.setState1(0);
@@ -267,44 +265,44 @@ public class KaifaFragment extends BaseFragment {
 						}
 
 						allxm.add(ax);
-						
-						
+
+
 						Log.e("getContent" + i,jsonList.get(i).getString("name"));
-						
+
 					}
-					
+
 					Log.e("allxm", allxm.size()+"111");
-					
-					
+
+
 					jsonList.get(0).getString("name");
 					//Log.e("getContent", jsonList.get(0).getString("name"));
 					//HtmlString = jsonObject.getString("content");
 					//Toast.makeText(XMXXActivity.this, resId, duration)
 					Message msg = new Message();
-					
+
 					msg.what = 1;
-					
+
 					handler.sendMessage(msg);
-					
-					
+
+
 				}catch(Exception e){
 					Log.e("Exception", e.toString());
 					Message msg = new Message();
-					
+
 					msg.what = 1;
-					
+
 					handler.sendMessage(msg);
-				}			
-				
+				}
+
 				Looper.loop();
 			}
-			
+
 		}.start();
 
 	}
-	
-	
-	
+
+
+
 	@Override
 	protected void initData(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -316,14 +314,14 @@ public class KaifaFragment extends BaseFragment {
 		// TODO Auto-generated method stub
 
 	}
-	
+
 	//listView = (ListView) kaifaActivity.findViewById(R.id.XMList);
-	
+
 	private Handler handler = new Handler(){
 		public void handleMessage(Message e){
 			switch (e.what) {
 			case 1:
-				
+
 				//listView = (ListView) kaifaActivity.findViewById(R.id.XMList);
 				if(allxm.size() == 0){
 					Toast.makeText(getActivity(), "null", Toast.LENGTH_SHORT).show();
@@ -333,7 +331,7 @@ public class KaifaFragment extends BaseFragment {
 					//init(kaifaView);
 					listView.setAdapter(adapter);
 					setListViewListener();
-					
+
 				}
 				//listView.setAdapter(this,allxm);
 				dialog.dismiss();
@@ -342,22 +340,22 @@ public class KaifaFragment extends BaseFragment {
 			default:
 				break;
 			}
-			
-			
-			
+
+
+
 		}
 	};
-	
-	
-	
+
+
+
 	private void setListViewListener() {
 		listView.setOnItemClickListener(new OnItemClickListener(){
 			public void onItemClick(AdapterView<?> a, View v, int position,long l) {
-				
+
 				int a2=allxm.get(position).getId();
 				String a3=String.valueOf(a2);
 				Log.e("a2", a3);
-			
+
 				Intent intentdianji=new Intent(getActivity(),ListActionActivity.class);
 				intentdianji.putExtra("id", a3);
 				startActivity(intentdianji);
@@ -366,13 +364,13 @@ public class KaifaFragment extends BaseFragment {
         });
 
 	}
-	
-	
 
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
 
 }
